@@ -2,15 +2,16 @@ from django.shortcuts import render
 from django.http.response import HttpResponse
 import pymysql
 import ast
+from OCW4IQ1.settings_secret import *
 
 def db_connect():
-    return pymysql.connect(host='localhost',
-                                 user='root',
-                                 password='',
-                                 db='test_ocw',
-                                 charset='utf8',
-                                 # Selectの結果をdictionary形式で受け取る
-                                 cursorclass=pymysql.cursors.DictCursor)
+    return pymysql.connect(host=DB_HOST,
+                             user=DB_USER,
+                             password=DB_PASSWORD,
+                             db=DB_NAME,
+                             charset='utf8',
+                             # Selectの結果をdictionary形式で受け取る
+                             cursorclass=pymysql.cursors.DictCursor)
 
 # column names in database
 columns = [

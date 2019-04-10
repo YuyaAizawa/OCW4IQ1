@@ -1,29 +1,33 @@
 {% extends "base.html" %}
+{% load i18n %}
 
 {% block title %}
-IQ1でもわかるOCW
+{% trans "OCW for IQ1" %}
 {% endblock %}
 
 {% block body %}
-
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow">
             <!-- navbar-dark : 文字色白 , bg-dark : 背景黒 -->
-            <a class="navbar-brand" href="/">IQ1でもわかるOCW</a>
+            <a class="navbar-brand" href="/">{% trans "OCW for IQ1" %}</a>
             <!-- TODO 必要ならばトグルメニューを追加 -->
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="/ja/">日本語</a>
+                <li class="nav-item"><a class="nav-link" href="/en/">English</a>
+            </ul>
         </nav>
 
         <div class="container">
             <div class="pt-5 pb-5">
                 <div class="p-3 pt-5">
-                    <h3>授業名で検索</h3>
+                    <h3>{% trans "Search by Lecture Name" %}</h3>
                 </div>
                 <div class="p-3">
                     <form action="/result" method="GET">
                         <div class="form-group">
-                            <label for="">授業名</label>
+                            <label for="">{% trans "Lecture name" %}</label>
                             <input type="lecture" class="form-control" name="lectureName">
                         </div>
-                        <button type="submit" class="btn btn-dark float-right">検索</button>
+                        <button type="submit" class="btn btn-dark float-right">{% trans "Search" %}</button>
                     </form>
                 </div>
             </div>
@@ -34,30 +38,30 @@ IQ1でもわかるOCW
         <div class="container">
             <div class="pt-5 pb-5">
                 <div class="p-3 pt-5">
-                    <h3>所属から選択</h3>
+                    <h3>{% trans "Select from Department" %}</h3>
                 </div>
                 <div class="p-3">
                     <ul class="list-group">
                         <li class="list-group-item">
-                            <a href="/department?dep=rigakuin"> 理学院 </a>
+                            <a href="/department?dep=rigakuin">{% trans "School of Science" %}</a>
                         </li>
                         <li class="list-group-item">
-                            <a href="/department?dep=kougakuin"> 工学院 </a>
+                            <a href="/department?dep=kougakuin">{% trans "School of Engineering" %}</a>
                         </li>
                         <li class="list-group-item">
-                            <a href="/department?dep=bussitsu"> 物質理工学院 </a>
+                            <a href="/department?dep=bussitsu">{% trans "School of School of Materials and Chemical Technology" %}</a>
                         </li>
                         <li class="list-group-item">
-                            <a href="/department?dep=jouhou"> 情報理工学院 </a>
+                            <a href="/department?dep=jouhou">{% trans "School of Computing" %}</a>
                         </li>
                         <li class="list-group-item">
-                            <a href="/department?dep=seimei"> 生命理工学院 </a>
+                            <a href="/department?dep=seimei">{% trans "School of Life Science and Technology" %}</a>
                         </li>
                         <li class="list-group-item">
-                            <a href="/department?dep=kankyo"> 環境・社会理工学院 </a>
+                            <a href="/department?dep=kankyo">{% trans "School of Environment and Sociery" %}</a>
                         </li>
                         <li class="list-group-item">
-                            <a href="/department?dep=sonota"> その他 </a>
+                            <a href="/department?dep=sonota">{% trans "Others" %}</a>
                         </li>
                     </ul>
                 </div>
